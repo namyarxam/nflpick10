@@ -1,0 +1,700 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: #3e3e3e;
+  background: #fff;
+  min-height: 100vh;
+}
+
+/**
+-----------------------------------------------------
+Skyline - BP
+-----------------------------------------------------  */
+
+// Breakpoint At Least
+@mixin bp-at-least($device-width) {
+  @media screen and (min-width: $device-width) {
+    @content
+  }
+}
+
+// Breakpoint Until
+@mixin bp-until($device-width) {
+  @media screen and (max-width: $device-width - .01) {
+    @content
+  }
+}
+
+// Breakpoint Between
+@mixin bp-between($device-width, $device-width2) {
+  @media screen and (min-width: $device-width) and (max-width: $device-width2) {
+    @content
+  }
+}
+
+// Shortcuts
+@mixin bp-xs() {
+  @media screen and (min-width: $breakpoint__xs) {
+    @content
+  }
+}
+@mixin bp-sm() {
+  @media screen and (min-width: $breakpoint__sm) {
+    @content
+  }
+}
+@mixin bp-md() {
+  @media screen and (min-width: $breakpoint__md) {
+    @content
+  }
+}
+@mixin bp-lg() {
+  @media screen and (min-width: $breakpoint__lg) {
+    @content
+  }
+}
+@mixin bp-xl() {
+  @media screen and (min-width: $breakpoint__xl) {
+    @content
+  }
+}
+
+
+
+/**
+--------------------------------------------------------
+  Skyline - Blocks
+-----------------------------------------------------  */
+
+.block {
+  margin: 0 2.5em;
+  padding: 3.25em 0;
+  border-bottom: 1px solid #e8e2d4;
+
+  @include bp-at-least(24em) {
+    margin: 0 5.25em;
+  }
+}
+
+// Block without border
+.block.nb {
+  margin: 0;
+  padding: 3.25em 2.5em;
+  border: none;
+
+  @include bp-at-least(24em) {
+    padding: 3.25em 5.25em;
+  }
+}
+
+// Blocks with large top padding
+.block.ltp {
+  padding-top: 4.5em;
+}
+
+// Blocks with large bottom padding
+.block.lbp {
+  padding-bottom: 4.5em;
+}
+
+// Blocks with small top padding
+.block.stp {
+  padding-top: 2.25em;
+}
+
+// Blocks with small bottom padding
+.block.sbp {
+  padding-bottom: 2.25em;
+}
+
+// Blocks with no top padding
+.block.ntp {
+  padding-top: 0;
+}
+
+// Blocks with no bottom padding
+.block.nbp {
+  padding-bottom: 0;
+}
+
+// Blocks with no right padding
+.block.nrp {
+  padding-right: 0;
+}
+
+// Block with medium text
+.block.text--md {
+  p {
+    font-size: 1.75em;
+    line-height: 1.75em;
+  }
+}
+
+// Block with centered text
+.block.text--centered {
+  text-align: center;
+}
+
+// Block with red background
+.block.block--red-bg {
+  background: #eb5047;
+}
+
+// Block with red background
+.block.block--blue-bg {
+  background: #55a9c8;
+}
+
+// Block with mediumtan background
+.block.block--mediumtan-bg {
+  background: #f9f0db;
+}
+
+.block.block--tan-bg {
+  background: #fbf5e6;
+}
+
+// Block titles
+.block__title {
+  font-size: 2.65em;
+  margin-bottom: .65em;
+}
+
+// Block title with large bottom margin
+.block__title.lbm {
+  margin-bottom: 1.2em;
+}
+
+// Block title with centered text
+.block__title--centered {
+  text-align: center;
+}
+
+// Block title with white text
+.block__title--white {
+  color: #fff;
+}
+
+/**
+--------------------------------------------------------
+Skyline Buttons
+------------------------------------------------------ */
+
+button {
+  font-size: 1em;
+  border: none;
+  background: none;
+  -webkit-appearance: none;
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+}
+
+.btn {
+  -webkit-appearance: none;
+  display: inline-block;
+  background: #eb5047;
+  color: #fff;
+  border: none;
+  font-family: "Effra", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.85em;
+  padding: 1.1em 1.25em;
+  border-radius: 2px;
+  cursor: pointer;
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 1;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+// Larger padding
+.btn.lp {
+  padding: 1.35em;
+}
+
+
+
+
+
+/* @btn--basic
+--------------------------------------------------------
+
+  Basic button, just text
+
+------------------------------------------------------ */
+
+.btn--basic {
+  background: none;
+  padding: 0;
+  color: #eb5047;
+  .icon .fill {
+    fill: #eb5047;
+  }
+}
+
+
+
+
+
+/* @btn--w-icon
+--------------------------------------------------------
+
+  A btn modifier, with an icon in it
+
+  Example: .btn--w-icon
+  <a class="btn btn--w-icon">Secondary button <img class="icon" href="http://placehold.it/100x100"></a>
+
+------------------------------------------------------ */
+
+.btn--w-icon {
+  .icon {
+    position: relative;
+    top: -.1em;
+    margin-left: .5em;
+    height: 1em;
+    width: auto;
+  }
+}
+
+
+
+
+
+/* @btn--outline
+--------------------------------------------------------
+
+  A btn modifier, with outline
+
+  Example: .btn--outline
+  <a class="btn btn--outline">Outlined button</a>
+
+------------------------------------------------------ */
+
+.btn--outline-red {
+  background: none;
+  border: 2px solid #eb5047;
+  color: #eb5047;
+  &:hover,
+  &:focus,
+  &:active {
+    border: 2px solid #eb5047;
+  }
+}
+
+.btn--outline-white {
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+  &:hover,
+  &:focus,
+  &:active {
+    border: 2px solid #fff;
+  }
+}
+
+
+
+
+
+/* @btn--modifer-bg
+--------------------------------------------------------
+
+  A btn modifier, with specified background
+
+  Example: .btn--white-bg
+  <a class="btn btn--white-bg btn--red">White Background</a>
+
+------------------------------------------------------ */
+
+.btn--white-bg {
+  background-color: #fff;
+}
+
+.btn--blue-bg {
+  background-color: #01346B;
+}
+
+.btn--no-bg {
+  background-color: transparent;
+}
+
+
+
+
+
+/* @btn--modifier
+--------------------------------------------------------
+
+  A btn modifier, with specified color
+
+  Example: .btn--red
+  <a class="btn btn--white-bg btn--red">Red Text</a>
+
+------------------------------------------------------ */
+
+.btn--red {
+  color: #eb5047;
+}
+
+.btn--blue {
+  color: #01346B;
+}
+
+.btn--white {
+  color: #fff;
+}
+
+
+/* @btn--inline
+--------------------------------------------------------
+
+  A btn modifier, if this button is in a paragraph or
+  in anything else that has a defined font-size, this
+  modifier will make the btn inherit the font-size of
+  the partent.
+
+  Example: .btn--inline
+  <p>Here's some text <a class="btn btn--inline">Cool button</a> text keeps going</p>
+
+------------------------------------------------------ */
+
+.btn--inline {
+  font-size: 1em;
+}
+
+
+
+
+
+/* @btn--block
+--------------------------------------------------------
+
+  A btn modifier - makes the button display block, 100%
+  width and aligns the text to the center.  Removes left
+  and right padding since the text is center aligned, it
+  is not needed.  Actually sometimes having the padding
+  on the left and right causes problems if the centered
+  text is quite long - so we just remove it.
+
+  Example: .btn--block
+  <a href="#" class="btn btn--block">Block button</a>
+
+------------------------------------------------------ */
+
+.btn--block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+
+
+
+/* @btn--spaced
+--------------------------------------------------------
+
+  A btn modifier - adds space to the sides of the button
+
+  Example: .btn--spaced
+  <a href="#" class="btn btn--block btn--spaced">Block button w space</a>
+
+------------------------------------------------------ */
+
+.btn--spaced {
+  display: block;
+  width: calc(100% - 5em);
+  margin: 0 2.5em;
+  text-align: center;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+
+
+
+/* @btn--icon
+--------------------------------------------------------
+
+  A btn modifier - makes the button display block, 100%
+  width and aligns the text to the center.  Removes left
+  and right padding since the text is center aligned, it
+  is not needed.  Actually sometimes having the padding
+  on the left and right causes problems if the centered
+  text is quite long - so we just remove it.
+
+  Example: .btn--icon
+  <button class="btn--icon ss-icon">Block button</button>
+
+------------------------------------------------------ */
+
+.btn--icon {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 1em;
+}
+
+
+// APP STUFF 
+//
+//
+//
+//
+
+.view {
+  min-height: 100vh;
+  padding-bottom: 8em;
+  filter: blur(0);
+}
+
+.home {
+  padding-bottom: 0;
+  margin: 0;
+  width: 100%;
+  border: none;
+  .block,
+  .block.nb {
+    margin: 0 auto;
+    width: 800px;
+    &.home__content__link--absolute {
+      width: 100%;
+    }
+  }
+}
+
+.home__background {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  transform: translateZ(0);
+  &:before {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    opacity: .35;
+    background: #000;
+  }
+}
+
+.home__content {
+  position: relative;
+  z-index: 5;
+  min-height: 100vh;
+  border-bottom: 1.1em solid #01346B;
+  &--flex {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    justify-content: center;
+  }
+  &--red-border {
+    border-color: #eb5047;
+  }
+  &__logo {
+    svg {
+      width: 12em;
+      height: 12em;
+    }
+  }
+  &__link {
+    a {
+      font-size: 1.5em;
+      color: #fff;
+
+      font-family: "Effra", sans-serif;
+      font-weight: 100;
+      font-style: normal;
+    }
+    &--absolute {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      a {
+        display: block;
+        text-align: center;
+      }
+    }
+    &--inline {
+      bottom: 0;
+      width: 100%;
+      a {
+        display: inline-block;
+      }
+      a:nth-of-type(2) {
+        float: right;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Custom CSS
+.nfl-logo {
+  width: 45%;
+  height: 45%;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+table a:link {
+  color: #666;
+  font-weight: bold;
+  text-decoration:none;
+}
+table a:visited {
+  color: #999999;
+  font-weight:bold;
+  text-decoration:none;
+}
+table a:active,
+table a:hover {
+  color: #bd5a35;
+  text-decoration:underline;
+}
+table {
+  font-family: sans-serif;
+  color:black;
+  font-size:13px;
+  background:#eaebec;
+  margin:20px;
+  border:#ccc 1px solid;
+
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border-radius:3px;
+
+  -moz-box-shadow: 0 1px 2px #d1d1d1;
+  -webkit-box-shadow: 0 1px 2px #d1d1d1;
+  box-shadow: 0 1px 2px #d1d1d1;
+}
+table th {
+  padding:21px 25px 22px 25px;
+  border-top:1px solid #fafafa;
+  border-bottom:1px solid #e0e0e0;
+
+  background: #ededed;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+  background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
+}
+table th:first-child {
+  text-align: left;
+  padding-left:20px;
+}
+table tr:first-child th:first-child {
+  -moz-border-radius-topleft:3px;
+  -webkit-border-top-left-radius:3px;
+  border-top-left-radius:3px;
+}
+table tr:first-child th:last-child {
+  -moz-border-radius-topright:3px;
+  -webkit-border-top-right-radius:3px;
+  border-top-right-radius:3px;
+}
+table tr {
+  text-align: start;
+  padding-left:20px;
+}
+table td:first-child {
+  text-align: left;
+  border-left: 0;
+}
+table td {
+  padding: 3px;
+  border-top: 1px solid #ffffff;
+  border-bottom:1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+
+  background: #fafafa;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+  background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+}
+table tr.even td {
+  background: #f6f6f6;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+  background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+}
+table tr:last-child td {
+  border-bottom:0;
+}
+table tr:last-child td:first-child {
+  -moz-border-radius-bottomleft:3px;
+  -webkit-border-bottom-left-radius:3px;
+  border-bottom-left-radius:3px;
+}
+table tr:last-child td:last-child {
+  -moz-border-radius-bottomright:3px;
+  -webkit-border-bottom-right-radius:3px;
+  border-bottom-right-radius:3px;
+}
+table tr:hover td {
+  background: #f2f2f2;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+  background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);  
+}
+.tableheader {
+  font-weight: bold;
+  text-align: center;
+}
+.pickstable {
+  width: 55%;
+}
+
+.spreadtable tr td {
+  background: white;
+}
+
+.teamlogo {
+  height: 20%;
+}
